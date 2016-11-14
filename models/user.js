@@ -52,7 +52,7 @@ module.exports = function(sequelize, DataTypes) {
 
 					user.findOne({
 						where: {
-							email: body.email
+							email: body.email.toLowerCase()
 						}
 					}).then(function(user) {
 						if (!user || !bcrypt.compareSync(body.password, user.get('password_hash'))) {
