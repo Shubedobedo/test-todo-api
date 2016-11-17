@@ -65,7 +65,7 @@ app.get('/todos/:id', middleware.requireAuthentication, function(req, res) {
 	});
 });
 
-// POST /todos 
+// POST /todos
 app.post('/todos', middleware.requireAuthentication, function(req, res) {
 	var body = _.pick(req.body, 'description', 'completed');
 
@@ -174,7 +174,7 @@ app.delete('/users/login', middleware.requireAuthentication, function (req, res)
 	});
 });
 
-db.sequelize.sync({force: true}).then(function() {
+db.sequelize.sync({force: false}).then(function() {
 	app.listen(PORT, function() {
 		console.log('Express listening on port ' + PORT + '!');
 	});
